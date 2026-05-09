@@ -1,16 +1,22 @@
-## Hi there 👋
+# Hi, I'm blow-tech 👋
 
-<!--
-**blow-tech/blow-tech** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm building skills in system administration, infrastructure automation, and Windows/Linux server operations.
 
-Here are some ideas to get you started:
+## Focus Areas
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- Windows Server administration
+- Active Directory, DNS, DHCP, and GPO
+- PowerShell automation
+- Linux administration
+- Bash scripting
+- Server auditing, monitoring, backup, and cleanup
+- Git and GitHub documentation
+
+## Featured Projects
+
+- `powershell-admin-toolkit` - PowerShell scripts for Windows administration, inventory, backup, cleanup, and maintenance tasks.
+- `linux-admin-scripts` - Bash scripts for Linux auditing, monitoring, and server health checks.
+
+## Current Goal
+
+Build practical automation projects for real-world system administration and infrastructure operations.
