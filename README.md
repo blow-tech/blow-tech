@@ -15,7 +15,12 @@ I'm building skills in system administration, infrastructure automation, and Win
 ## Featured Projects
 
 - `powershell-admin-toolkit` - PowerShell scripts for Windows administration, inventory, backup, cleanup, and maintenance tasks.
+
+- - - [powershell-admin-toolkit](https://github.com/blow-tech/powershell-admin-toolkit) - PowerShell scripts for Windows administration, inventory, backup, cleanup, and maintenance tasks.
+      
 - `linux-admin-scripts` - Bash scripts for Linux auditing, monitoring, and server health checks.
+
+- [linux-admin-scripts](https://github.com/blow-tech/linux-admin-scripts) - Bash scripts for Linux auditing, monitoring, and server health checks
 
 ## Current Goal
 
