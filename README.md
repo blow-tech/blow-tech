@@ -1,7 +1,7 @@
 # Hi, I'm blow-tech 👋
 
 Sysadmin working in enterprise Windows Server and Microsoft 365 environments.<br>
-I script what I used to do by hand — AD lifecycle, Exchange auditing, certificate management, and infrastructure health checks.<br>
+I script what I used to do by hand AD lifecycle, Exchange auditing, certificate management, and infrastructure health checks.<br>
 Scripts here come from real incidents and daily ops, not tutorials.
 
 ---
