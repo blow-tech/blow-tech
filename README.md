@@ -3,7 +3,7 @@
 **Enterprise infrastructure doesn't break on my watch.**
 
 Windows Server. Active Directory. Exchange Online. RHEL. VMware. These aren't
-technologies I know — they're environments I've kept running.
+technologies I know they're environments I've kept running.
 
 Every script here was written because something broke, or nearly did.
 
