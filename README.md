@@ -1,6 +1,6 @@
 # blow-tech
 
-Systems administrator working across Windows Server, Active Directory, Exchange Online, Microsoft 365, RHEL, and VMware. Scripts here come from production environments — built to solve real operational problems, not to demonstrate syntax.
+Systems administrator working across Windows Server, Active Directory, Exchange Online, Microsoft 365, RHEL, and VMware. Scripts here come from production environments built to solve real operational problems, not to demonstrate syntax.
 
 ---
 
