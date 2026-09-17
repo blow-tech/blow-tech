@@ -57,7 +57,7 @@ consistent log output.
 | Windows Server | AD DS, DNS, DHCP, GPO, IIS, Certificate Authority (ADCS), RSAT |
 | Microsoft 365 | Exchange Online, Intune, SharePoint, Teams, Entra ID, Graph API |
 | Cloud | Azure (VMs, VNets, Storage, Entra ID, Monitor, RBAC) — Az PowerShell |
-| Virtualisation | VMware ESXi / vCenter, VM provisioning and lifecycle management |
+| Virtualization | VMware ESXi / vCenter, VM provisioning and lifecycle management |
 | Linux | RHEL / CentOS, systemd, SELinux, log rotation, production auditing |
 | Automation | PowerShell, Bash, Ansible (playbooks/roles), scheduled tasks |
 | Security & audit | Account lifecycle, privileged access (PIM/sudoers), lockout tracing, mail flow |
