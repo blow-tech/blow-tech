@@ -2,7 +2,7 @@
 
 Systems administrator / infrastructure engineer working across Windows Server,
 Active Directory, Exchange Online, Microsoft 365, RHEL, and VMware. The
-scripts and tooling here come out of production environments — built to fix
+scripts and tooling here come out of production environments built to fix
 recurring operational problems and reduce manual work, not to demonstrate
 syntax.
 
