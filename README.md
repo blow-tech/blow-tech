@@ -27,11 +27,10 @@ The environment includes:
 
 - Active Directory forest deployment
 - Windows Server virtual machines
-- SQL Server nodes
-- iSCSI-backed storage
+- SQL Server nodes (Failover Cluster Instance on iSCSI shared storage)
 - File services
 - WSUS
-- GPO-driven patching
+- GPO-driven ring-based patching
 - PowerShell-based configuration
 - Automated validation through GitHub Actions
 
@@ -60,6 +59,30 @@ without requiring manual edits to Prometheus target configuration.
 
 `Prometheus` `Grafana` `Alertmanager` `Ansible` `Docker Compose`
 `Kubernetes` `Argo CD` `Istio` `GitOps` `RHEL` `GitHub Actions`
+
+---
+
+### [windows-fleet-monitoring](https://github.com/blow-tech/windows-fleet-monitoring)
+> The same monitoring pattern as fleet-monitoring-stack, applied to a Windows
+> Server fleet over WinRM.
+
+Ansible hardens and enrolls Windows Server VMs into the same
+Prometheus/Grafana/Alertmanager pattern used on the Linux side, closing the
+practical gap most Ansible-for-Windows setups hit: WinRM can't be bootstrapped
+remotely on a fresh host. A GPO Computer Startup Script solves that, so every
+VM in the target OU is manageable on first boot with no manual per-host step.
+
+Includes:
+
+- windows_exporter deployment and firewall scoping to the monitoring host
+- Baseline hardening (NLA, SMBv1 removal, audit policy, automatic security updates)
+- Dockerized Prometheus/Grafana/Alertmanager, with Prometheus targets
+  templated directly from Ansible inventory
+- CI includes a real PowerShell parser check on a Windows GitHub Actions
+  runner, not just YAML/syntax validation
+
+`PowerShell` `Ansible` `WinRM` `Windows Server` `GPO` `Prometheus`
+`Grafana` `Docker Compose` `GitHub Actions`
 
 ---
 
@@ -147,7 +170,7 @@ Designed for both interactive administration and unattended scheduled execution.
 | Azure | Virtual Machines, VNets, Storage, Entra ID, Azure Monitor, RBAC, Az PowerShell |
 | Virtualization | VMware ESXi, vCenter, VM provisioning, lifecycle management |
 | Infrastructure as Code | Terraform, reusable modules, declarative infrastructure |
-| Configuration Management | Ansible, roles, inventories, Jinja2 templates |
+| Configuration Management | Ansible, roles, inventories, Jinja2 templates, WinRM |
 | Linux | RHEL / CentOS, Bash, systemd, SELinux, logrotate |
 | Containers | Docker, Docker Compose |
 | Kubernetes | Kubernetes, Argo CD, GitOps, Istio |
@@ -196,18 +219,18 @@ syntax checks, linting, configuration validation, and CI workflows.
 
 ## Current Areas of Interest
 
-Currently expanding work around:
+Specific next steps already tracked in the repos above, rather than a general
+list of topics:
 
-- Infrastructure as code
-- Automated Windows Server deployment
-- VMware provisioning
-- Configuration management
-- Linux fleet management
-- Prometheus/Grafana observability
-- Kubernetes
-- GitOps with Argo CD
-- CI validation
-- Hybrid Windows/Linux infrastructure automation
+- Running `labhandzone-infra` end-to-end against a real vSphere lab and
+  hardening what that first real run surfaces
+- Always On Availability Groups as an alternative to Failover Cluster
+  Instances for SQL Server environments without shared storage
+- Packer-built VM templates, so provisioning is code from template build
+  through GPO patching, not a manual first step
+- Extending the Prometheus/Grafana pattern to a `kind`/`k3d` cluster in CI,
+  so the Kubernetes deployment path gets the same real end-to-end testing
+  the VM path already has
 
 ---
 
@@ -227,16 +250,4 @@ Projects generally aim to include:
 
 ---
 
-## Technology Overview
-
-`PowerShell` `Bash` `Python` `Terraform` `Ansible` `Jinja2`
-
-`Windows Server` `Active Directory` `Microsoft 365` `Azure`
-
-`RHEL` `Linux` `VMware vSphere`
-
-`Docker` `Kubernetes` `Argo CD` `Istio`
-
-`Prometheus` `Grafana` `Alertmanager`
-
-`Git` `GitHub Actions`
+📫 Reach me via GitHub issues on any repo above, or connect on LinkedIn *(add link here)*.
