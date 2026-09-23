@@ -249,5 +249,3 @@ Projects generally aim to include:
 - Safe defaults for audit and reporting operations
 
 ---
-
-📫 Reach me via GitHub issues on any repo above, or connect on LinkedIn *(add link here)*.
