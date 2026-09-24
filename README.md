@@ -42,6 +42,39 @@ YAML linting, and rendered PowerShell template syntax checks.
 
 ---
 
+### [VMware-to-Hyper-migration](https://github.com/blow-tech/VMware-to-Hyper-migration)
+> Phase-gated methodology and tooling for migrating VMware environments to
+> Hyper-V / Azure Stack HCI — discovery, network and storage design, backup
+> validation, and wave tracking.
+
+Built around a 4-6 host, 20-30 VM environment including Active Directory
+domain controllers, but scales either direction. Each phase produces a
+concrete artifact — a filled CSV, a passed checklist, a proven restore —
+that gates the next phase, rather than a prose checklist with no evidence
+trail.
+
+Includes:
+
+- Read-only vCenter discovery (Ansible + PowerCLI, equivalent output)
+- VMware portgroup/VLAN → Hyper-V SET switch mapping methodology
+- Storage decision framework: vSAN (no reuse) vs FC SAN (re-zone, reuse
+  array) vs Storage Spaces Direct, with zoning and sizing worksheets
+- Backup validation runbook — proves restores work on the target platform
+  before any production VM migrates, not just that the backup job succeeded
+- Per-wave pre-cutover checklist (network, storage, licensing/KMS, rollback)
+  and a decommission checklist for the retired VMware environment
+- Migration wave tracker tying VM, network, storage, and gate status together
+
+AD/DNS/DHCP cutover is intentionally excluded — domain controllers are
+rebuilt fresh on the target platform, never P2V'd, and that runbook lives
+in its own project given its distinct risk profile (FSMO transfer, SYSVOL
+convergence, USN rollback risk).
+
+`Ansible` `PowerShell` `PowerCLI` `VMware vSphere` `Hyper-V`
+`Azure Stack HCI` `Storage Spaces Direct` `Fibre Channel` `Veeam`
+
+---
+
 ### [fleet-monitoring-stack](https://github.com/blow-tech/fleet-monitoring-stack)
 > Automated monitoring platform for Linux fleets using Prometheus, Grafana,
 > Alertmanager, Ansible, Docker, and Kubernetes.
@@ -169,6 +202,7 @@ Designed for both interactive administration and unattended scheduled execution.
 | Microsoft 365 | Exchange Online, Intune, SharePoint, Teams, Entra ID, Microsoft Graph |
 | Azure | Virtual Machines, VNets, Storage, Entra ID, Azure Monitor, RBAC, Az PowerShell |
 | Virtualization | VMware ESXi, vCenter, VM provisioning, lifecycle management |
+| Migration & HCI | Hyper-V, Azure Stack HCI, Storage Spaces Direct, FC SAN zoning, Veeam |
 | Infrastructure as Code | Terraform, reusable modules, declarative infrastructure |
 | Configuration Management | Ansible, roles, inventories, Jinja2 templates, WinRM |
 | Linux | RHEL / CentOS, Bash, systemd, SELinux, logrotate |
@@ -224,6 +258,10 @@ list of topics:
 
 - Running `labhandzone-infra` end-to-end against a real vSphere lab and
   hardening what that first real run surfaces
+- Running `VMware-to-Hyper-migration` end-to-end against `labhandzone-infra`'s
+  vSphere lab as the migration source, so the wave tracker and backup
+  validation runbook get exercised against a real environment instead of
+  templates alone
 - Always On Availability Groups as an alternative to Failover Cluster
   Instances for SQL Server environments without shared storage
 - Packer-built VM templates, so provisioning is code from template build
