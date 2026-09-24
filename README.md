@@ -44,12 +44,12 @@ YAML linting, and rendered PowerShell template syntax checks.
 
 ### [VMware-to-Hyper-migration](https://github.com/blow-tech/VMware-to-Hyper-migration)
 > Phase-gated methodology and tooling for migrating VMware environments to
-> Hyper-V / Azure Stack HCI — discovery, network and storage design, backup
+> Hyper-V / Azure Stack HCI discovery, network and storage design, backup
 > validation, and wave tracking.
 
 Built around a 4-6 host, 20-30 VM environment including Active Directory
 domain controllers, but scales either direction. Each phase produces a
-concrete artifact — a filled CSV, a passed checklist, a proven restore —
+concrete artifact a filled CSV, a passed checklist, a proven restore
 that gates the next phase, rather than a prose checklist with no evidence
 trail.
 
@@ -59,13 +59,13 @@ Includes:
 - VMware portgroup/VLAN → Hyper-V SET switch mapping methodology
 - Storage decision framework: vSAN (no reuse) vs FC SAN (re-zone, reuse
   array) vs Storage Spaces Direct, with zoning and sizing worksheets
-- Backup validation runbook — proves restores work on the target platform
+- Backup validation runbook proves restores work on the target platform
   before any production VM migrates, not just that the backup job succeeded
 - Per-wave pre-cutover checklist (network, storage, licensing/KMS, rollback)
   and a decommission checklist for the retired VMware environment
 - Migration wave tracker tying VM, network, storage, and gate status together
 
-AD/DNS/DHCP cutover is intentionally excluded — domain controllers are
+AD/DNS/DHCP cutover is intentionally excluded domain controllers are
 rebuilt fresh on the target platform, never P2V'd, and that runbook lives
 in its own project given its distinct risk profile (FSMO transfer, SYSVOL
 convergence, USN rollback risk).
