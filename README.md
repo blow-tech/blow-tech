@@ -95,30 +95,6 @@ without requiring manual edits to Prometheus target configuration.
 
 ---
 
-### [windows-fleet-monitoring](https://github.com/blow-tech/windows-fleet-monitoring)
-> The same monitoring pattern as fleet-monitoring-stack, applied to a Windows
-> Server fleet over WinRM.
-
-Ansible hardens and enrolls Windows Server VMs into the same
-Prometheus/Grafana/Alertmanager pattern used on the Linux side, closing the
-practical gap most Ansible-for-Windows setups hit: WinRM can't be bootstrapped
-remotely on a fresh host. A GPO Computer Startup Script solves that, so every
-VM in the target OU is manageable on first boot with no manual per-host step.
-
-Includes:
-
-- windows_exporter deployment and firewall scoping to the monitoring host
-- Baseline hardening (NLA, SMBv1 removal, audit policy, automatic security updates)
-- Dockerized Prometheus/Grafana/Alertmanager, with Prometheus targets
-  templated directly from Ansible inventory
-- CI includes a real PowerShell parser check on a Windows GitHub Actions
-  runner, not just YAML/syntax validation
-
-`PowerShell` `Ansible` `WinRM` `Windows Server` `GPO` `Prometheus`
-`Grafana` `Docker Compose` `GitHub Actions`
-
----
-
 ## Automation & Operations Projects
 
 ### [powershell-admin-toolkit](https://github.com/blow-tech/powershell-admin-toolkit)
